@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Login from "./components/Login";
+import Chats from "./components/Chats";
+import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import AuthContext from "./context/AuthContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <AuthContext>
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/chats" element={<Chats />} />
+                    {/* <Route path="*" element={<Navigate to="/" />} /> */}
+                </Routes>
+            </AuthContext>
+        </div>
+    );
 }
 
 export default App;
