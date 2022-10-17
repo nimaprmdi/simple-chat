@@ -16,7 +16,7 @@ const Chats = () => {
         console.log(user);
 
         if (!user) {
-            navigation("/");
+            navigation("/simple-chat/");
             return;
         }
 
@@ -41,21 +41,21 @@ const Chats = () => {
                 formData.append("secret", user.uid);
                 getFile(user.photoURL).then((avatar) => {
                     formData.append("avatar", avatar, avatar.name);
-                });
 
-                axios
-                    .post("https://api.chatengine.io/users/", formData, {
-                        headers: {
-                            "private-key": "private-key",
-                            "project-id": "6b924b2f-cdd3-49eb-9935-5d4973824224",
-                        },
-                    })
-                    .then(() => {
-                        setLoading(false);
-                    })
-                    .catch((error) => {
-                        console.log("Sec Error", error);
-                    });
+                    axios
+                        .post("https://api.chatengine.io/users/", formData, {
+                            headers: {
+                                "private-key": "",
+                                "project-id": "6b924b2f-cdd3-49eb-9935-5d4973824224",
+                            },
+                        })
+                        .then(() => {
+                            setLoading(false);
+                        })
+                        .catch((error) => {
+                            console.log("Sec Error", error);
+                        });
+                });
             });
     }, [user, navigation]);
 

@@ -14,7 +14,7 @@ const AuthContext = ({ children }) => {
             setUser(user);
             console.log(user);
             setLoading(false);
-            if (user) navigation("/chats");
+            if (user) navigation("/simple-chat/chats");
         });
     }, [user, navigation]);
 

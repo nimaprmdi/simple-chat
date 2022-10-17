@@ -10,9 +10,9 @@ function App() {
         <div className="App">
             <AuthContext>
                 <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/chats" element={<Chats />} />
-                    {/* <Route path="*" element={<Navigate to="/" />} /> */}
+                    <Route path="/simple-chat/" element={<Login />} />
+                    <Route path="/simple-chat/chats" element={<Chats />} />
+                    {/* <Route path="*" element={<Navigate to="/simple-chat/" />} /> */}
                 </Routes>
             </AuthContext>
         </div>
